@@ -1,0 +1,20 @@
+#set("title") {Post Show}
+
+#set("body") {
+<div class="row">
+  <div class="col-md-12">
+    <div id="raw-markdown" style="display:none;">
+      #(contents)
+    </div>
+    <div id="markdown"></div>
+  </div>
+</div>
+<script src="https://cdn.rawgit.com/chjj/marked/master/marked.min.js"></script>
+<script>
+  let rawMarkdownElement = document.querySelector('#raw-markdown')
+  let markdownElement = document.querySelector('#markdown')
+  markdownElement.innerHTML = marked(rawMarkdownElement.innerHTML)
+</script>
+}
+
+#embed("base")
