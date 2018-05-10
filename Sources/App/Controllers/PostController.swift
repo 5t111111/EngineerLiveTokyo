@@ -16,10 +16,12 @@ final class PostController {
                 ]
                 return try req.view().render("posts/index", data)
             } catch {
-                throw Abort(.unprocessableEntity, "error1")
+                console.log("Error1")
+                throw Abort(.unprocessableEntity)
             }
         } else {
-            throw Abort(.unprocessableEntity, "error2")
+            console.log("Error2")
+            throw Abort(.unprocessableEntity)
         }
     }
 
@@ -36,10 +38,12 @@ final class PostController {
                 ]
                 return try req.view().render("posts/show", data)
             } catch {
-                throw Abort(.unprocessableEntity, "error3")
+                console.log("Error3")
+                throw Abort(.unprocessableEntity)
             }
         } else {
-            throw Abort(.unprocessableEntity, "error4")
+            console.log("Error4")
+            throw Abort(.unprocessableEntity)
         }
     }
 }
