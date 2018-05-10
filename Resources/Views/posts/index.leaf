@@ -1,10 +1,10 @@
-#set("title") {Post Show}
+#set("title") {Post Index}
 
 #set("body") {
 <div class="row">
   <div class="col-md-12">
     <h1>#(postTitle)</h1>
-    <h4>#(postDate)</h4>
+    <h4>#(updatedDate)</h4>
     <div id="raw-markdown" style="display:none;">
       #(postBody)
     </div>
@@ -13,9 +13,9 @@
 </div>
 <script src="https://cdn.rawgit.com/chjj/marked/master/marked.min.js"></script>
 <script>
-  let rawMarkdownElement = document.querySelector('#raw-markdown')
-  let markdownElement = document.querySelector('#markdown')
-  markdownElement.innerHTML = marked(rawMarkdownElement.innerHTML)
+    let rawMarkdownElement = document.querySelector('#raw-markdown')
+    let markdownElement = document.querySelector('#markdown')
+    markdownElement.innerHTML = marked(rawMarkdownElement.innerHTML)
 </script>
 }
 

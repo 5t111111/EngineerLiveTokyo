@@ -9,7 +9,6 @@ let package = Package(
 
         // 🍃 Leaf template engine.
         .package(url: "https://github.com/vapor/leaf.git", from: "3.0.0-rc.2.2")
-
     ],
     targets: [
         .target(name: "App", dependencies: ["Vapor", "Leaf"]),
@@ -17,4 +16,3 @@ let package = Package(
         .testTarget(name: "AppTests", dependencies: ["App"])
     ]
 )
-
