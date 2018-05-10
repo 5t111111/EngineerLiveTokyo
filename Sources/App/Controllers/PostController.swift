@@ -1,8 +1,7 @@
 import Vapor
 
 final class PostController {
-    // let rootUrl = Environment.get("ROOT_URL") ?? "http://localhost:8080"
-    let rootUrl = "https://engineerlivetokyo2018.vapor.cloud"
+    let rootUrl = Environment.get("ROOT_URL") ?? "http://localhost:8080"
 
     func index(_ req: Request) throws -> Future<View> {
         if let url = URL(string: "\(rootUrl)/post-sources/index.md") {
@@ -16,11 +15,9 @@ final class PostController {
                 ]
                 return try req.view().render("posts/index", data)
             } catch {
-                print("Error1")
                 throw Abort(.unprocessableEntity)
             }
         } else {
-            print("Error2")
             throw Abort(.unprocessableEntity)
         }
     }
@@ -29,9 +26,7 @@ final class PostController {
         let postName = try req.parameters.next(String.self)
         if let url = URL(string: "\(rootUrl)/post-sources/\(postName).md") {
             do {
-                print(url)
                 let contents = try String(contentsOf: url)
-                print(contents)
                 let post = try Post.parseRawContents(of: contents)
                 let data = [
                     "postTitle": post.title,
@@ -40,11 +35,10 @@ final class PostController {
                 ]
                 return try req.view().render("posts/show", data)
             } catch {
-                print("Error3")
+                print("caught: \(error)")
                 throw Abort(.unprocessableEntity)
             }
         } else {
-            print("Error4")
             throw Abort(.unprocessableEntity)
         }
     }
