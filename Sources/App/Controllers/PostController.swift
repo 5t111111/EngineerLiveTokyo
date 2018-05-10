@@ -16,11 +16,11 @@ final class PostController {
                 ]
                 return try req.view().render("posts/index", data)
             } catch {
-                print("Error1")
+                console.log("Error1")
                 throw Abort(.unprocessableEntity)
             }
         } else {
-            print("Error2")
+            console.log("Error2")
             throw Abort(.unprocessableEntity)
         }
     }
@@ -29,7 +29,9 @@ final class PostController {
         let postName = try req.parameters.next(String.self)
         if let url = URL(string: "\(rootUrl)/post-sources/\(postName).md") {
             do {
+                print(url)
                 let contents = try String(contentsOf: url)
+                print(contents)
                 let post = try Post.parseRawContents(of: contents)
                 let data = [
                     "postTitle": post.title,
@@ -38,11 +40,11 @@ final class PostController {
                 ]
                 return try req.view().render("posts/show", data)
             } catch {
-                print("Error3")
+                console.log("Error3")
                 throw Abort(.unprocessableEntity)
             }
         } else {
-            print("Error4")
+            console.log("Error4")
             throw Abort(.unprocessableEntity)
         }
     }
