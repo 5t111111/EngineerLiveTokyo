@@ -16,11 +16,11 @@ final class PostController {
                 ]
                 return try req.view().render("posts/index", data)
             } catch {
-                console.log("Error1")
+                print("Error1")
                 throw Abort(.unprocessableEntity)
             }
         } else {
-            console.log("Error2")
+            print("Error2")
             throw Abort(.unprocessableEntity)
         }
     }
@@ -38,11 +38,11 @@ final class PostController {
                 ]
                 return try req.view().render("posts/show", data)
             } catch {
-                console.log("Error3")
+                print("Error3")
                 throw Abort(.unprocessableEntity)
             }
         } else {
-            console.log("Error4")
+            print("Error4")
             throw Abort(.unprocessableEntity)
         }
     }
