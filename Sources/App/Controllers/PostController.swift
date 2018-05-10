@@ -26,6 +26,7 @@ final class PostController {
         let postName = try req.parameters.next(String.self)
         if let url = URL(string: "\(rootUrl)/post-sources/\(postName).md") {
             do {
+                print(url)
                 let contents = try String(contentsOf: url)
                 let post = try Post.parseRawContents(of: contents)
                 let data = [
