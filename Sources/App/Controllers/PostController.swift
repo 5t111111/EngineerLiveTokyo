@@ -1,7 +1,8 @@
 import Vapor
 
 final class PostController {
-    let rootUrl = Environment.get("ROOT_URL") ?? "http://localhost:8080"
+    // let rootUrl = Environment.get("ROOT_URL") ?? "http://localhost:8080"
+    let rootUrl = "https://engineerlivetokyo2018.vapor.cloud"
 
     func index(_ req: Request) throws -> Future<View> {
         if let url = URL(string: "\(rootUrl)/post-sources/index.md") {
