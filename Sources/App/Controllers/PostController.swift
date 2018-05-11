@@ -17,7 +17,8 @@ final class PostController {
 
         for file in visibleFiles {
             let contents = try String(contentsOf: file)
-            let post = try Post.parseRawContents(of: contents)
+            var post = try Post.parseRawContents(of: contents)
+            post.slug = file.lastPathComponent.replacingOccurrences(of: ".md", with: "")
             posts.append(post)
         }
 

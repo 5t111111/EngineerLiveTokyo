@@ -10,6 +10,7 @@ struct Post: Codable {
     let title: String
     let date: String
     let body: String
+    var slug: String?
 
     init(title: String, date: String, body: String) {
         self.title = title
