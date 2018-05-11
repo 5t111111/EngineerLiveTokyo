@@ -6,7 +6,7 @@ enum PostError: Error {
     case invalidTitle
 }
 
-struct Post {
+struct Post: Codable {
     let title: String
     let date: String
     let body: String

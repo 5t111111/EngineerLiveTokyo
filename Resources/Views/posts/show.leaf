@@ -3,10 +3,10 @@
 #set("body") {
 <div class="row">
   <div class="col-md-12">
-    <h1>#(postTitle)</h1>
-    <h4>#(postDate)</h4>
+    <h1>#(post.title)</h1>
+    <h4>#(post.date)</h4>
     <div id="raw-markdown" style="display:none;">
-      #(postBody)
+      #(post.body)
     </div>
     <div id="markdown"></div>
   </div>
