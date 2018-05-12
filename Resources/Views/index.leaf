@@ -1,12 +1,8 @@
 #set("title") {Post Show}
 
 #set("body") {
-<div class="row">
-  <div class="col-md-12">
-    <h1>エンジニアライブ東京2018</h1>
-    <h4>2018年11月開催予定</h4>
-  </div>
-</div>
+<h1>エンジニアライブ東京2018</h1>
+<h4>2018年11月開催予定</h4>
 }
 
 #embed("layouts/master")

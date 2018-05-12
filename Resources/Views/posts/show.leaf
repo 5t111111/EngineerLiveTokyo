@@ -1,8 +1,7 @@
 #set("title") {Post Show}
 
 #set("body") {
-<div class="row">
-  <div class="col-md-12">
+<div>
     <h1>#(post.title)</h1>
     <h4>#(post.date)</h4>
     <div id="raw-markdown" style="display:none;">
@@ -10,7 +9,6 @@
     </div>
     <div id="markdown"></div>
   </div>
-</div>
 <script src="https://cdn.rawgit.com/chjj/marked/master/marked.min.js"></script>
 <script>
   let rawMarkdownElement = document.querySelector('#raw-markdown')
