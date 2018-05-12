@@ -19,4 +19,4 @@
 </script>
 }
 
-#embed("base")
+#embed("layouts/master")

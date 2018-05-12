@@ -3,7 +3,12 @@ import Foundation
 
 /// Register your application's routes here.
 public func routes(_ router: Router) throws {
-    let postController = PostController()
-    router.get("posts", use: postController.index)
-    router.get("posts", String.parameter, use: postController.show)
+    let homeController = HomeController()
+    router.get(use: homeController.index)
+
+    router.group("posts") { group in
+        let postController = PostController()
+        group.get(use: postController.index)
+        group.get(String.parameter, use: postController.show)
+    }
 }
