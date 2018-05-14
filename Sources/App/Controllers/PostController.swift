@@ -2,9 +2,10 @@ import Foundation
 import Vapor
 
 final class PostController {
-    let postSourceDir = URL(fileURLWithPath: "\(DirectoryConfig.detect().workDir)Public/post-sources")
-
     func index(_ req: Request) throws -> Future<View> {
+        let directoryConfig = try req.make(DirectoryConfig.self)
+        let postSourceDir = URL(fileURLWithPath: "\(directoryConfig.workDir)Public/post-sources")
+
         let fm = FileManager()
 
         guard let files = try? fm.contentsOfDirectory(at: postSourceDir, includingPropertiesForKeys: nil) else {
@@ -30,6 +31,9 @@ final class PostController {
 
     func show(_ req: Request) throws -> Future<View> {
         let postName = try req.parameters.next(String.self)
+
+        let directoryConfig = try req.make(DirectoryConfig.self)
+        let postSourceDir = URL(fileURLWithPath: "\(directoryConfig.workDir)Public/post-sources")
 
         let fm = FileManager()
 

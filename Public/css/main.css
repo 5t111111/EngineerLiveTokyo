@@ -1,0 +1,13 @@
+/* header */
+header {
+  background: cadetblue;
+  height: 40px;
+}
+
+header nav {
+  display: flex;
+}
+
+header nav div:first-child {
+  margin-right: auto;
+}
