@@ -19,7 +19,7 @@ final class PostController {
         }
     }
 
-    func index(_ req: Request) throws -> Future<View> {
+    func index(_ req: Request) throws -> Future<[Post]> {
         let visibleFiles = postSourceFiles.filter { !$0.lastPathComponent.hasPrefix(".") }
         var posts: [Post] = []
 
@@ -30,19 +30,17 @@ final class PostController {
             posts.append(post)
         }
 
-        let context = ["posts": posts]
-        return try req.view().render("posts/index", context)
+        return Future.map(on: req) { posts }
     }
 
-    func show(_ req: Request) throws -> Future<View> {
+    func show(_ req: Request) throws -> Future<Post> {
         let postName = try req.parameters.next(String.self)
         let targetFile = postSourceFiles.filter { $0.lastPathComponent == "\(postName).md" }.first
 
         if let targetFile = targetFile {
             let contents = try String(contentsOf: targetFile)
             let post = try Post.parseRawContents(of: contents)
-            let context = ["post": post]
-            return try req.view().render("posts/show", context)
+            return Future.map(on: req) { post }
         } else {
             throw Abort(.internalServerError)
         }

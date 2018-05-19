@@ -1,3 +1,4 @@
+import Foundation
 import Vapor
 
 enum PostError: Error {
@@ -6,7 +7,7 @@ enum PostError: Error {
     case invalidTitle
 }
 
-struct Post: Codable {
+struct Post: Content {
     let title: String
     let date: String
     let body: String
