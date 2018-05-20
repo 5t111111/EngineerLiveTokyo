@@ -3,6 +3,8 @@ title: This is an Example
 date: 2018-05-04
 ---
 
+<script>alert("XSS")</script>
+
 # h1 Heading 8-)
 ## h2 Heading
 ### h3 Heading
