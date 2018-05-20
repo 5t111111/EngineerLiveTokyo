@@ -1,5 +1,6 @@
 import Foundation
 import Vapor
+import Markdown
 
 enum PostError: Error {
     case invalidFrontMatter
@@ -38,12 +39,26 @@ struct Post: Content {
         }
         let titleString = String(frontMatter[titleRange])
 
+        let bodyMarkdown = rawContents.replacingOccurrences(of: "---\n" + frontMatter + "\n---", with: "")
+        let bodyHTML = try convertToHTML(from: bodyMarkdown)
+
         let post = Post(
             title: String(titleString[titleString.index(titleString.startIndex, offsetBy: "title: ".count)...]),
             date: String(dateString[dateString.index(dateString.startIndex, offsetBy: "date: ".count)...]),
-            body: rawContents.replacingOccurrences(of: "---\n" + frontMatter + "\n---", with: "")
+            body: bodyHTML
         )
 
         return post
+    }
+
+    static func convertToHTML(from source: String) throws -> String {
+        // fix the line breaks
+        let trimmed = source.replacingOccurrences(of: "\r\n", with: "\n")
+        // parse the Markdown string
+        let md = try Markdown(string: trimmed)
+        // convert it to HTML
+        let doc = try md.document()
+
+        return doc
     }
 }

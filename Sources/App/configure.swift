@@ -18,9 +18,4 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
     middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
     services.register(middlewares)
-
-    // Custom leaf tag configuration
-    var tags = LeafTagConfig.default()
-    tags.use(MarkdownTag(), as: "markdown")
-    services.register(tags)
 }
