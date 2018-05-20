@@ -18,3 +18,15 @@
         <img src="http://img.shields.io/badge/swift-4.1-brightgreen.svg" alt="Swift 4.1">
     </a>
 </center>
+
+```
+API_ENDPOINT=https://example.com/api
+```
+
+```
+heroku create --buildpack https://github.com/vapor-community/heroku-buildpack.git
+```
+
+```
+heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt
+```
