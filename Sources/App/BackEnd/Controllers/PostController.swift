@@ -19,7 +19,7 @@ final class PostController {
         }
     }
 
-    func index(_ req: Request) throws -> Future<[Post]> {
+    func getAllHandler(_ req: Request) throws -> Future<[Post]> {
         let visibleFiles = postSourceFiles.filter { !$0.lastPathComponent.hasPrefix(".") }
         var posts: [Post] = []
 
@@ -33,7 +33,7 @@ final class PostController {
         return Future.map(on: req) { posts }
     }
 
-    func show(_ req: Request) throws -> Future<Post> {
+    func getHandler(_ req: Request) throws -> Future<Post> {
         let postName = try req.parameters.next(String.self)
         let targetFile = postSourceFiles.filter { $0.lastPathComponent == "\(postName).md" }.first
 
