@@ -5,25 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>#get(title)</title>
   <link rel="stylesheet" type="text/css" href="/css/ress.css">
+  <link rel="stylesheet" type="text/css" href="/css/bulma.min.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <script src="/js/main.js"></script>
 </head>
 
 <body>
-<header>
-  <nav>
-    <div>
-      <a href="/">エンジニアライブ東京</a>
+<header class="header">
+  <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/images/brand-logo.png" alt="EngineerLiveTokyo" width="112" height="28">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-    <div>
-      <a href="/posts/">ニュース</a>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown">
+          <a class="navbar-link">
+            MENU
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="/posts">
+              お知らせ
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
 </header>
-<main>
+<main class="main">
   #get(body)
 </main>
-<footer>
-  <p>Copyright &copy; 2018</p>
+<footer class="footer">
+  <p>EngineerLiveTokyo &copy; 2018</p>
 </footer>
 </body>
 </html>

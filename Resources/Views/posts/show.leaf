@@ -1,11 +1,15 @@
 #set("title") {Post Show}
 
 #set("body") {
-<div>
-    <h1>#(post.title)</h1>
-    <h4>#(post.date)</h4>
-    <div>#get(post.body)</div>
+<section class="section">
+  <div class="container">
+    <div class="post">
+      <h1 class="post__title">#(post.title)</h1>
+      <h4>#(post.date)</h4>
+      <div class="post__content">#get(post.body)</div>
+    </div>
   </div>
+</section>
 }
 
 #embed("layouts/master")

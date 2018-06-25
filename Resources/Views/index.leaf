@@ -1,8 +1,19 @@
 #set("title") {Post Show}
 
 #set("body") {
-<h1>エンジニアライブ東京2018</h1>
-<h4>2018年11月開催予定</h4>
+<div class="home">
+  <section class="section">
+    <div class="container">
+      <div class="home__image"></div>
+      <div class="home__logo"></div>
+      <div class="home__information">
+        <p>2018.11.25 (日)</p>
+        <p>@真昼の月・夜の太陽</p>
+        <p><a href="http://mahiru-yoru.com/index.html">http://mahiru-yoru.com/index.html</a></p>
+      </div>
+    </div>
+  </section>
+</div>
 }
 
 #embed("layouts/master")
